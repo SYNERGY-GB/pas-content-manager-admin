@@ -3,6 +3,19 @@ export const PAGES_MENU = [
     path: 'pages',
     children: [
       {
+        path: 'content',
+        data: {
+          menu: {
+            title: 'Content Manager',
+            icon: 'ion-android-home',
+            pathMatch: 'prefix',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
+      {
         path: 'dashboard',
         data: {
           menu: {
