@@ -1,5 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import { AngularFire } from 'angularfire2';
 
 @Component({
   selector: 'login',
@@ -14,7 +15,7 @@ export class Login {
   public password:AbstractControl;
   public submitted:boolean = false;
 
-  constructor(fb:FormBuilder) {
+  constructor(fb:FormBuilder, private af: AngularFire) {
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
@@ -28,7 +29,12 @@ export class Login {
     this.submitted = true;
     if (this.form.valid) {
       // your code goes here
-      console.log(this.email.value+" "+this.password.value);
+      this.af.auth.login({
+        email: this.email.value,
+        password: this.password.value
+      }).then(
+        () => console.log("success"))
+        .catch(error => console.log(error));
     }
   }
 }
