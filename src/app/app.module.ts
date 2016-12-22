@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 //Firebase Import
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule, AuthMethods, AuthProviders } from 'angularfire2';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -21,14 +21,19 @@ import { GlobalState } from './global.state';
 import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
 
-//Firebase
-export const firebaseConfig = {
+// Firebase
+const firebaseConfig = {
     apiKey: "AIzaSyDdcRi9L9bbmeJvZDzbPfgJTsyqY5b4f68",
     authDomain: "pruebasynergy-c92f7.firebaseapp.com",
     databaseURL: "https://pruebasynergy-c92f7.firebaseio.com",
     storageBucket: "pruebasynergy-c92f7.appspot.com",
     messagingSenderId: "785749975197"
   };
+
+const firebaseAuthConfig =  {
+  provider: AuthProviders.Password,
+  method: AuthMethods.Password,
+}
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -59,7 +64,7 @@ type StoreType = {
     NgaModule.forRoot(),
     PagesModule,
     routing,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
       ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
