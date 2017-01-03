@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
 
 import { Login } from './login.component';
-import { routing }       from './login.routing';
+import { LoginRoutingModule }       from './login.routing';
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { routing }       from './login.routing';
     ReactiveFormsModule,
     FormsModule,
     NgaModule,
-    routing
+    LoginRoutingModule
   ],
   declarations: [
     Login

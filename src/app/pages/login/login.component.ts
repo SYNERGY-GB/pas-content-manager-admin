@@ -1,6 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import { AngularFire } from 'angularfire2';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -15,7 +16,7 @@ export class Login {
   public password:AbstractControl;
   public submitted:boolean = false;
 
-  constructor(fb:FormBuilder, private af: AngularFire) {
+  constructor(fb:FormBuilder, private af: AngularFire, private router: Router) {
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
@@ -33,7 +34,7 @@ export class Login {
         email: this.email.value,
         password: this.password.value
       }).then(
-        () => console.log("success"))
+        () => this.router.navigate(['/pages/dashboard']))
         .catch(error => console.log(error));
     }
   }
