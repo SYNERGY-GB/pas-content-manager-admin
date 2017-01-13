@@ -1,6 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
-import { AngularFire } from 'angularfire2';
+import { FirebaseService } from '../../app-firebase.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { CLIENTS } from '../../app.clients.ts';
 
@@ -19,7 +19,7 @@ export class Login {
   public client:AbstractControl;
   public credentials:Object;
 
-  constructor(fb:FormBuilder, private af: AngularFire, private router: Router) {
+  constructor(fb:FormBuilder, private router: Router, private fs: FirebaseService) {
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
@@ -35,24 +35,28 @@ export class Login {
     this.submitted = true;
     if (this.form.valid) {
       // your code goes here
-    //   this.af.auth.login({
-    //     email: this.email.value,
-    //     password: this.password.value
-    //   }).then(
-    //     () => this.router.navigate(['/pages/dashboard']))
-    //     .catch(error => console.log(error));
-    console.log(this.client.value);
-    console.log(this.password.value);
-    console.log(this.email.value);
-    }
+    // console.log(this.client.value);
+    // console.log(this.password.value);
+    // console.log(this.email.value);
 
+    /* if the client exists, then we check if the user can enter to the app */
+      if (this.checkClient())
+      { 
+        this.fs.authenticate(this.email.value, this.password.value)
+          .then(() =>{
+            if (this.fs.signedIn == true)
+              this.router.navigate(["/pages/content"]);
+          })
+      }
+    }
   }
 
   public checkClient(): Boolean {
     for (var i = 0; i < CLIENTS.length; i++)
     {
-      if (this.client.value == CLIENTS[i]){
-        this.credentials = CLIENTS[i].credentials;
+      console.log(CLIENTS[i].name)
+      if (this.client.value == CLIENTS[i].name){
+        this.fs.initialize(CLIENTS[i].credentials);
         return true;
       }
     }

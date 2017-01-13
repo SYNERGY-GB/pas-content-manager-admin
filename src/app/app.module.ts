@@ -6,7 +6,8 @@ import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 //Firebase Import
-import { AngularFireModule, AuthMethods, AuthProviders } from 'angularfire2';
+// import { AngularFireModule, AuthMethods, AuthProviders } from 'angularfire2';
+import { FirebaseService } from './app-firebase.service.ts';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -30,10 +31,10 @@ const firebaseConfig = {
     messagingSenderId: "785749975197"
   };
 
-const firebaseAuthConfig =  {
-  provider: AuthProviders.Password,
-  method: AuthMethods.Password,
-}
+// const firebaseAuthConfig =  {
+//   provider: AuthProviders.Password,
+//   method: AuthMethods.Password,
+// }
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -63,12 +64,12 @@ type StoreType = {
     ReactiveFormsModule,
     NgaModule.forRoot(),
     PagesModule,
-    routing,
-    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
+    routing
       ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    FirebaseService
   ]
 })
 
