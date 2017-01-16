@@ -1,3 +1,6 @@
+/* This service define the Authentication guard to
+protect the data of users without permission */
+
 import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { FirebaseService } from './app-firebase.service';
@@ -20,7 +23,7 @@ export class AuthGuard implements CanActivate, CanActivateChild{
             return true;}
         else {
             this.fs.redirectURL = url;
-            //this.router.navigate(["/login"]);
+            this.router.navigate(["/login"]);
             return false;
         }
     }
