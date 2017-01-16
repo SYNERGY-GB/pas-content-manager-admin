@@ -1,3 +1,7 @@
+ /* This service is the one that defines all the
+ functions about Firebase. Login, logout, fetch
+ data, etc. */
+ 
  import { Injectable } from '@angular/core';
 //Firebase Import
 import {database, initializeApp, auth} from 'firebase';
