@@ -44,8 +44,9 @@ export class Login {
       { 
         this.fs.authenticate(this.email.value, this.password.value)
           .then(() =>{
-            if (this.fs.signedIn == true)
+            if (this.fs.signedIn == true){
               this.router.navigate(["/pages/content"]);
+            }
           })
       }
     }
