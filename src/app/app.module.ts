@@ -22,20 +22,6 @@ import { GlobalState } from './global.state';
 import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
 
-// Firebase
-const firebaseConfig = {
-    apiKey: "AIzaSyDdcRi9L9bbmeJvZDzbPfgJTsyqY5b4f68",
-    authDomain: "pruebasynergy-c92f7.firebaseapp.com",
-    databaseURL: "https://pruebasynergy-c92f7.firebaseio.com",
-    storageBucket: "pruebasynergy-c92f7.appspot.com",
-    messagingSenderId: "785749975197"
-  };
-
-// const firebaseAuthConfig =  {
-//   provider: AuthProviders.Password,
-//   method: AuthMethods.Password,
-// }
-
 // Application wide providers
 const APP_PROVIDERS = [
   AppState,
