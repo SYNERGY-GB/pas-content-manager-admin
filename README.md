@@ -1,52 +1,29 @@
-[![Build Status](https://travis-ci.org/akveo/ng2-admin.svg?branch=master)](https://travis-ci.org/akveo/ng2-admin)
-[![Join the chat at https://gitter.im/ng2-admin/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng2-admin/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Dependency Status](https://david-dm.org/akveo/ng2-admin.svg)](https://david-dm.org/akveo/ng2-admin)
+#Serverless Content Management Project
+Serverless content manager using AngularJS, NodeJS, Firebase and SchemaForm
 
-# Admin panel framework based on Angular 2, Bootstrap 4 and Webpack
+###Keywords
+Angular2, NodeJS, serverless, content manager, Firebase, SchemaForm.
 
-Admin template made with :heart:  by [Akveo team](http://akveo.com/). Follow us on [Twitter](https://twitter.com/akveo_inc) to get latest news about this template first!
+##Introduction
+The objective of this project is to create two Data-Driven applications.
+The first one, is an admin that populates a Firebase instance with data
+obtained via forms (using Angular2, SchemaForm and Firebase) to customize 
+a Client-Side app content. The second one app, will be a Client-Side app
+that reads content from the Firebase instance(using Angular2 and Firebase)
+and populates a HTML template with the content that exists.
 
-### Demo
+##Applications:
+1. [Admin] (https://github.com/SYNERGY-GB/pas-content-manager-admin)
+2. [Client] (https://github.com/SYNERGY-GB/pas-content-manager-client)
+3. [Script] (https://github.com/SYNERGY-GB/pas-content-manager-scripts)
 
-<a target="_blank" href="http://akveo.com/ng2-admin/"><img src="http://i.imgur.com/QK9AzHj.jpg" width="600" alt="Sky Blue"/></a>
+##ToDo List
+1. Make a script that upload the Schema and the Form file to the Firebase instance
+2. Mockup of the admin app and populates the Firebase instance
+3. Mockup of the client-side app. Read content from the FB instance 
 
-<a target="_blank" href="http://akveo.com/ng2-admin/">Live Demo</a>
-
-## Angular 1.x version
-Here you can find Angular 1.x based version: [Blur Admin](http://akveo.github.io/blur-admin/)
- 
-## Documentation
-Installation, customization and other useful articles: https://akveo.github.io/ng2-admin/
-
-## Based on
-Angular 2, Bootstrap 4, Webpack and lots of awesome modules and plugins
-
-## How can I support developers?
-- Star our GitHub repo :star:
-- Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
-- Follow us on [Twitter](https://twitter.com/akveo_inc) :feet:
-- Like our page on [Facebook](https://www.facebook.com/akveo/) :thumbsup:
-
-## Can I hire you guys?
-Yes!  Visit [our homepage](http://akveo.com/) or simply leave us a note to [contact@akveo.com](mailto:contact@akveo.com). We will be happy to work with you!
-
-## Features
-* TypeScript
-* Webpack
-* Responsive layout
-* High resolution
-* Bootstrap 4 CSS Framework
-* Sass
-* Angular 2
-* jQuery
-* Charts (Chartist, Chart.js)
-* Maps (Google, Leaflet, amMap)
-* and many more!
-
-##License
-[MIT](LICENSE.txt) license.
-
-### From akveo
-
-Enjoy :metal:
-We're always happy to hear your feedback!
+##References:
+1. [Angular2 Official Website](https://angular.io/ "Angular2 Official Website")
+2. [Firebase Official Website](https://firebase.google.com/ "Firebase Official Website")
+3. [Angular2 SchemaForm Github Repository](https://github.com/makinacorpus/angular2-schema-form "Angular2 SchemaForm Repo")
+4. [Angular2 Firebase Official Github Repository](https://github.com/angular/angularfire2 "Angular2 Firebase Official Repo")
