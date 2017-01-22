@@ -3,7 +3,7 @@ import { FirebaseService } from '../../app-firebase.service';
 
 @Component({
     selector: 'content-ma',
-    template: `<strong> My page content here </strong>`
+    template: require('./content.html')
 })
 export class ContentComponent{
     public modules: Object;
