@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs/Rx';
 
 import {BaMenuService} from './baMenu.service';
 import {GlobalState} from '../../../global.state';
+import { FirebaseService } from '../../../app-firebase.service';
 
 @Component({
   selector: 'ba-menu',
@@ -27,7 +28,9 @@ export class BaMenu {
   protected _onRouteChange:Subscription;
   public outOfArea:number = -200;
 
-  constructor(private _router:Router, private _service:BaMenuService, private _state:GlobalState) {
+  modules : Object;
+
+  constructor(private _router:Router, private _service:BaMenuService, private _state:GlobalState, private fs: FirebaseService) {
     this._onRouteChange = this._router.events.subscribe((event) => {
 
       if (event instanceof NavigationEnd) {
@@ -49,7 +52,16 @@ export class BaMenu {
   }
 
   public ngOnInit():void {
-    this.menuItems = this._service.convertRoutesToMenus(this.menuRoutes);
+    this.fs.db.ref('modules').on('value', (snapshot) => {
+      this.modules = snapshot.val();
+      console.log(this.menuRoutes);
+      console.log(Object.keys(this.modules));
+      for (var key in this.modules){
+        if(this.modules.hasOwnProperty(key))
+          this.menuRoutes[0].children.push(this.modules[key].menuObj);
+      }
+      this.menuItems = this._service.convertRoutesToMenus(this.menuRoutes);
+    })
   }
 
   public ngOnDestroy():void {
