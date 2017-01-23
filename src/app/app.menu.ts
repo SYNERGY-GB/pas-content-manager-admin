@@ -1,5 +1,5 @@
 import { PAGES_MENU } from './pages/pages.menu';
 
-export const MENU = [
+export var MENU = [
   ...PAGES_MENU
 ];

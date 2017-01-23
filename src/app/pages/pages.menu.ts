@@ -1,4 +1,4 @@
-export const PAGES_MENU = [
+export var PAGES_MENU = [
   {
     path: 'pages',
     children: [
