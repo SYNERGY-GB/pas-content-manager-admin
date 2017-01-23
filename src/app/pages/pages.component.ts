@@ -1,4 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
+import { FirebaseService } from '../app-firebase.service';
+import { MENU } from '../app.menu';
 @Component({
   selector: 'pages',
   encapsulation: ViewEncapsulation.None,
@@ -29,9 +31,20 @@ import {Component, ViewEncapsulation} from '@angular/core';
 })
 export class Pages {
 
-  constructor() {
+  modules: any[];
+  constructor(private fs: FirebaseService) {
   }
 
   ngOnInit() {
+    this.fs.db.ref('modules').on('value', (snapshot) => {
+      this.modules = snapshot.val();
+      console.log(MENU);
+      console.log(this.modules);
+      for (var it = 0; it < this.modules.length; it++){
+        MENU[0].children.push(this.modules[it].menuObj);
+        console.log(this.modules[it].menuObj);
+        console.log(it);
+      }
+    })
   }
 }

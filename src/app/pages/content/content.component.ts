@@ -14,11 +14,6 @@ export class ContentComponent{
             this.modules = snapshot.val();
             console.log(this.modules);
         });
-
-    }
-
-    public updateModule(val){
-        this.modules = val;
     }
 }
 
