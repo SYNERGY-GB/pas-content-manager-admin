@@ -12,10 +12,12 @@ import {database, initializeApp, auth} from 'firebase';
      public auth;
      public signedIn: boolean = false;
      public redirectURL: string;
+     public modules;
      public initialize(config){
          initializeApp(config);
          this.db = database();
          this.auth = auth();
+         this.db.ref('modules').on('value', (snap) => this.modules = snap.val());
      }
 
      public authenticate(email: string, password: string): Promise<any>{

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from '../../app-firebase.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
     selector: 'content-ma',
@@ -7,13 +9,15 @@ import { FirebaseService } from '../../app-firebase.service';
 })
 export class ContentComponent{
     public modules: Object;
-    constructor(private fs: FirebaseService) {}
+    private module: string;
+    constructor(
+        private fs: FirebaseService,
+        private router: Router,
+        private route: ActivatedRoute) {}
     ngOnInit(){
-        this.fs.db.ref('modules').on('value', (snapshot) => {
-            console.log(snapshot.val());
-            this.modules = snapshot.val();
-            console.log(this.modules);
-        });
+        this.route.params.subscribe((params) => {
+            this.module = params['id'];
+            console.log(this.fs.modules[this.module])});
     }
 }
 

@@ -34,24 +34,21 @@ export class Login {
   public onSubmit(values:Object):void {
     this.submitted = true;
     if (this.form.valid) {
-      // your code goes here
-    // console.log(this.client.value);
-    // console.log(this.password.value);
-    // console.log(this.email.value);
-
     /* if the client exists, then we check if the user can enter to the app */
       if (this.checkClient())
       { 
         this.fs.authenticate(this.email.value, this.password.value)
           .then(() =>{
             if (this.fs.signedIn == true){
-              this.router.navigate(["/pages/content"]);
+              this.router.navigate(["/pages/dashboard"]);
             }
           })
       }
     }
   }
 
+/* this evaluates to true if the client exist otherwise this will be false. 
+  Also if the client exists, initialize the firebase instance*/
   public checkClient(): Boolean {
     for (var i = 0; i < CLIENTS.length; i++)
     {

@@ -1,6 +1,5 @@
 import {Component, ViewEncapsulation} from '@angular/core';
-import { FirebaseService } from '../app-firebase.service';
-import { MENU } from '../app.menu';
+
 @Component({
   selector: 'pages',
   encapsulation: ViewEncapsulation.None,
@@ -30,7 +29,7 @@ import { MENU } from '../app.menu';
     `
 })
 export class Pages {
-
+  
   constructor() {
   }
 

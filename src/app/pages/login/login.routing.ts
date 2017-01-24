@@ -12,10 +12,6 @@ const routes: Routes = [
   { 
     path: 'dashboard', 
     loadChildren: () => System.import('../dashboard/dashboard.module') 
-  },
-  { 
-    path: 'content', 
-    loadChildren: () => System.import('../content/content.module')
   }
 ];
 
