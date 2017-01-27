@@ -10,6 +10,8 @@ import 'rxjs/add/operator/switchMap';
 export class ContentComponent{
     public modules: Object;
     private module: string;
+    private schema: any;
+    private model: any;
     constructor(
         private fs: FirebaseService,
         private router: Router,
@@ -17,7 +19,8 @@ export class ContentComponent{
     ngOnInit(){
         this.route.params.subscribe((params) => {
             this.module = params['id'];
-            console.log(this.fs.modules[this.module])});
+            console.log(this.fs.modules[this.module]);
+            this.schema = this.fs.modules[this.module].schemaForm.schema;});
     }
 }
 

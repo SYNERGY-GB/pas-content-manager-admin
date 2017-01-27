@@ -21,6 +21,7 @@ import { AppState, InternalStateType } from './app.service';
 import { GlobalState } from './global.state';
 import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
+import { SchemaFormModule, WidgetRegistry, DefaultWidgetRegistry } from 'angular2-schema-form';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -50,12 +51,14 @@ type StoreType = {
     ReactiveFormsModule,
     NgaModule.forRoot(),
     PagesModule,
+    SchemaFormModule,
     routing
       ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS,
-    FirebaseService
+    FirebaseService,
+    {provide: WidgetRegistry, useClass: DefaultWidgetRegistry}
   ]
 })
 

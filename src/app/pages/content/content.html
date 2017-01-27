@@ -1,28 +1,40 @@
-<ba-card title="Condensed Table" baCardClass="with-scroll table-panel">
-    <div class="horizontal-scroll">
-      <table class="table table-condensed">
-        <thead>
-        <tr>
-          <th class="table-id">#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-          <th>Email</th>
-          <th>Status</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td class="table-id">100</td>
-          <td>Leo</td>
-          <td>Santella</td>
-          <td>lstd</td>
-          <td><a class="email-link" href="#">bla</a></td>
-          <td>
-            <button ngClass="status-button btn btn-xs btn-success">success</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+<div class="container">
+  <div class="row">
+    <schema-form class="col-md-12" [schema]="schema" (onChange)="val=$event.value"><pre class="col-md-6">{{val | json}}</pre></schema-form>
+    <div class="col-md-12">
+    <button ngClass="status-button btn btn-xs btn-success btn-lg pull-right">Add</button>
     </div>
-</ba-card>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <ba-card title={{this.module}} baCardClass="with-scroll table-panel">
+        <div class="horizontal-scroll">
+          <table class="table table-condensed">
+            <thead>
+            <tr>
+              <th class="table-id">#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="table-id">100</td>
+              <td>Leo</td>
+              <td>Santella</td>
+              <td>lstd</td>
+              <td><a class="email-link" href="#">bla</a></td>
+              <td>
+                <button ngClass="status-button btn btn-xs btn-success">success</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </ba-card>
+    </div>
+  </div>
+</div>
