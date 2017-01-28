@@ -51,7 +51,6 @@ type StoreType = {
     ReactiveFormsModule,
     NgaModule.forRoot(),
     PagesModule,
-    SchemaFormModule,
     routing
       ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

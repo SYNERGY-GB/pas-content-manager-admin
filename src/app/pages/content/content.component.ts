@@ -19,8 +19,8 @@ export class ContentComponent{
     ngOnInit(){
         this.route.params.subscribe((params) => {
             this.module = params['id'];
-            console.log(this.fs.modules[this.module]);
-            this.schema = this.fs.modules[this.module].schemaForm.schema;});
+            this.schema = this.fs.modules[this.module].schemaForm.schema;
+        });
     }
 }
 
