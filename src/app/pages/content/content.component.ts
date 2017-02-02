@@ -43,6 +43,7 @@ export class ContentComponent{
                         console.log("Modified");
                     }); 
                 }
+                this.model = {};    
             }
             };
             this.schema["buttons"] = buttons;
@@ -75,7 +76,10 @@ export class ContentComponent{
 
     delete(obj){
         var moduleRef = this.fs.db.ref().child(this.module+"/"+obj.key);
-        moduleRef.remove().then(() => this.toModify = undefined);
+        moduleRef.remove().then(() => {
+            this.toModify = undefined;
+            this.model = {};
+        });
 
     }
 
