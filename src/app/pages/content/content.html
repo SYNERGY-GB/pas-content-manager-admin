@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <schema-form class="col-md-6" [schema]="schema" [actions]="actions" (onChange)="val=$event.value"><pre class="col-md-6">{{val | json}}</pre></schema-form>
+    <schema-form class="col-md-6" [schema]="schema" [actions]="actions" [model]="model" (onChange)="val=$event.value"><pre class="col-md-6">{{val | json}}</pre></schema-form>
     <div class="col-md-6">
       <button ngClass="status-button btn btn-xs btn-success btn-lg">Add</button>
     </div>
@@ -17,9 +17,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let banner of banners; let i=index">
+            <tr *ngFor="let obj of objects; let i=index">
               <td class="table-id">{{ i+1 }}</td>
-              <td *ngFor="let key of banner | keys">{{ key.value }}</td>
+              <td *ngFor="let col of columns">{{ obj.value[col] }}</td>
+              <td>
+                <button ngClass="{status-button btn btn-xs btn-danger" (click)="delete(obj); $event.stopPropagation()">Delete</button>
+                <button ngClass="{status-button btn btn-xs btn-warning" (click)="modify(obj)">Modify</button>
+              </td>
             </tr>
             </tbody>
           </table>
