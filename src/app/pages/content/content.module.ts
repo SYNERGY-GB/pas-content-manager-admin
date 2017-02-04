@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContentComponent } from './content.component';
+import { ContentManagerComponent } from './content-manager.component';
 import { routing } from './content.routing';
 import { NgaModule } from '../../theme/nga.module';
 import { SchemaFormModule } from 'angular2-schema-form';
-import { KeysPipe } from './keys.pipe';
 //import { TablesModule } from '../tables/tables.module';
 
 @NgModule({
@@ -16,7 +16,7 @@ import { KeysPipe } from './keys.pipe';
     ],
     declarations: [
         ContentComponent,
-        KeysPipe
+        ContentManagerComponent,
     ]
 })
 export default class ContentModule{}

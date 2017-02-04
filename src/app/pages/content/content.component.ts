@@ -1,14 +1,13 @@
-import { Component, Pipe, PipeTransform } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FirebaseService } from '../../app-firebase.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
 
 @Component({
-    selector: 'content-ma',
+    selector: 'content',
     template: require('./content.html')
 })
 export class ContentComponent{
-    private module: string;
+    @Input() module: string;
     private schema: any;
     private model: any;
     private columns: string[];
@@ -21,9 +20,7 @@ export class ContentComponent{
         private route: ActivatedRoute) {}
 
     ngOnInit(){
-        this.route.params.subscribe((params) => {
             this.objects = [];
-            this.module = params['id'];
             var module = this.fs.modules[this.module];
             this.schema = module.schemaForm.schema;
             this.columns = module.tableColumns;
@@ -71,7 +68,6 @@ export class ContentComponent{
                         this.objects[o].value = data.val();
                 }
             });
-        });
     }
 
     delete(obj){

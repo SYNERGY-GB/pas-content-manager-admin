@@ -52,16 +52,7 @@ export class BaMenu {
   }
 
   public ngOnInit():void {
-    this.fs.db.ref('modules').on('value', (snapshot) => {
-      this.modules = snapshot.val();
-      console.log(this.menuRoutes);
-      console.log(Object.keys(this.modules));
-      for (var key in this.modules){
-        if(this.modules.hasOwnProperty(key))
-          this.menuRoutes[0].children.push(this.modules[key].menuObj);
-      }
       this.menuItems = this._service.convertRoutesToMenus(this.menuRoutes);
-    })
   }
 
   public ngOnDestroy():void {
