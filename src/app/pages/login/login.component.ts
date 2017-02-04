@@ -47,12 +47,11 @@ export class Login {
     }
   }
 
-/* this evaluates to true if the client exist otherwise this will be false. 
+/* This evaluates true if the client exist otherwise this will be false. 
   Also if the client exists, initialize the firebase instance*/
   public checkClient(): Boolean {
     for (var i = 0; i < CLIENTS.length; i++)
     {
-      console.log(CLIENTS[i].name)
       if (this.client.value == CLIENTS[i].name){
         this.fs.initialize(CLIENTS[i].credentials);
         return true;

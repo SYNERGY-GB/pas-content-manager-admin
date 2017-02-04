@@ -5,7 +5,7 @@ import { ContentManagerComponent } from './content-manager.component';
 import { routing } from './content.routing';
 import { NgaModule } from '../../theme/nga.module';
 import { SchemaFormModule } from 'angular2-schema-form';
-//import { TablesModule } from '../tables/tables.module';
+
 
 @NgModule({
     imports: [
