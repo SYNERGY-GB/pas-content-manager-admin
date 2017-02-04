@@ -15,6 +15,18 @@ export var PAGES_MENU = [
         }
       },
       {
+        path: 'content-manager',
+        data: {
+          menu: {
+            title: 'Content-Manager',
+            icon: 'ion-android-home',
+            selected: true,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
+      {
         path: 'editors',
         data: {
           menu: {
