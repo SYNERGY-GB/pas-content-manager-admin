@@ -17,10 +17,12 @@ and populates a HTML template with the content that exists.
 2. [Client] (https://github.com/SYNERGY-GB/pas-content-manager-client)
 3. [Script] (https://github.com/SYNERGY-GB/pas-content-manager-scripts)
 
+##Admin Application:
+This application is a content-manager of the client application.
+here the user can modify the content displayed on the client application.
+
 ##ToDo List
-1. Make a script that upload the Schema and the Form file to the Firebase instance
-2. Mockup of the admin app and populates the Firebase instance
-3. Mockup of the client-side app. Read content from the FB instance 
+1. Mockup of the client-side app. Read content from the FB instance 
 
 ##References:
 1. [Angular2 Official Website](https://angular.io/ "Angular2 Official Website")
