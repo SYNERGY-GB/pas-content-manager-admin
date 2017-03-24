@@ -21,8 +21,14 @@ and populates a HTML template with the content that exists.
 This application is a content-manager of the client application.
 here the user can modify the content displayed on the client application.
 
-##ToDo List
-1. Mockup of the client-side app. Read content from the FB instance 
+##Installation
+1. Clone or download this repo.
+2. In a terminal, go to the project's folder.
+3. Run `npm install` or `yarn` if you have yarn installed.
+4. Run `npm start`.
+5. Open a browser.
+6. Go to localhost:3000
+7. Use the app.
 
 ##References:
 1. [Angular2 Official Website](https://angular.io/ "Angular2 Official Website")
